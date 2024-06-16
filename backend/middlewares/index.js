@@ -10,6 +10,7 @@ const verifyJWT = (req, res, next) => {
     return res.status(400).send("No token found");
   }
 
+  
   var token = authHeader.split(" ")[1]; // to remove 'BEARER'
   try {
     const payload = jwt.verify(token, process.env.JWTSECRET);
